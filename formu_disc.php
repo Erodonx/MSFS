@@ -69,7 +69,7 @@ $wallahzeubi= $stmt->fetchALL(PDO::FETCH_OBJ);
                 <div class="row pt-5">
                     <div class="col-12">
                         <label for="picture">Picture</label><br><input type="file" class="w-100" name="picture">
-                        <span class="text-danger" id="defaultname"></span>
+                        <span class="text-danger" id="defaultnamez"></span>
                     </div>
 </div>
                 <div class="row d-none d-lg-flex py-5">
