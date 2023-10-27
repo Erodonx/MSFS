@@ -1,0 +1,11 @@
+img{
+    min-width:400px; min-height:400px; max-width:400px; max-height:400px;
+
+
+}
+.commands{
+    bottom:0; right:0;
+}
+.commands2{
+     right:0;
+}
