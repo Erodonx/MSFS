@@ -13,11 +13,12 @@
 <div class="container-fluid">
 <div class="row">
 <?php
+$pair=0;
 include 'pdo_login.php';
 $stmt = $conn->query("SELECT * FROM disc JOIN artist ON disc.artist_id=artist.artist_id");
 $stmt2 = $conn->query("SELECT * FROM disc");        
 $bite= $stmt2->fetchALL(PDO::FETCH_OBJ);
-echo '<h1>LISTES LES DISQUES('.count($bite).')</h1><a href="formu_disc.php" class="btn btn-primary d-flex text-center position-absolute commands2">Ajouter</a></div><div class="row">';
+echo '<h1>LISTES LES DISQUES('.count($bite).')</h1><a href="add_form.php" class="btn btn-primary d-flex text-center position-absolute commands2">Ajouter</a></div><div class="row">';
 while ($row = $stmt->fetch()) {
     $pair=$pair+1;
     echo '<div class="col-6">
@@ -27,12 +28,15 @@ while ($row = $stmt->fetch()) {
     <div class="col-6">
     <img src="disc_picture/'.$row['disc_picture'].'"></div>
     <div class="col-6 px-5 px-lg-0 pr-5 pb-3 position-static"> 
-    <p class="card-text text-light text-left font-weight-bold">'.$row['disc_title'].'</p>
-    <p class="card-text text-light text-left">'.$row['artist_name'].'</p>
-    <p class="card-text text-light text-left">Label : '.$row['disc_label'].'</p>
-    <p class="card-text text-light text-left">Year : '.$row['disc_year'].'</p>
-    <p class="card-text text-light text-left">Genre : '.$row['disc_genre'].'</p>
-    <a href="#" class="btn btn-primary text-center position-absolute commands">Détails</a></div> </div> </div></div></div>';
+    <p class="card-text text-light text-right font-weight-bold">'.$row['disc_title'].'</p>
+    <p class="card-text text-light text-right">'.$row['artist_name'].'</p>
+    <p class="card-text text-light text-right">Label : '.$row['disc_label'].'</p>
+    <p class="card-text text-light text-right">Year : '.$row['disc_year'].'</p>
+    <p class="card-text text-light text-right">Genre : '.$row['disc_genre'].'</p>'.
+    //<form action="details.php" method="POST">
+    //<input type="hidden" name="secret" value="'.$row['disc_id'].'">
+    '<a href="details.php?disc_id='.$row['disc_id'].'" class="btn btn-primary text-center position-absolute commands">Détails</a></div> </div> </div></div></div>';
+    //<input type="submit" class="btn btn-primary text-center position-absolute commands" value="Détails"></form></div> </div> </div></div></div>';
     if($pair%2==0)
     {
      echo '</div> <div class="row mt-5">';
@@ -40,21 +44,6 @@ while ($row = $stmt->fetch()) {
 
 }
 ?>
-
-                    
-                       
-<!--                            
-                                <img id="lienplat" class="card-img-bottom" src="#" alt="Plat commandé"> -->
-                           
-                         
-                               
-                                
-                                    <!-- <label for="quantité" class="text-light">quantité</label>
-                                    <input type="number" min="1" max="10" value="1" class="w-25">
-                                
-                           
-                       
-                    </div> -->
 </div>
 </div>
 </div>
