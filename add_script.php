@@ -1,7 +1,6 @@
 <?php
 include 'pdo_login.php';
 $stmt2 = $conn->query("SELECT * FROM disc");   
-$bite= $stmt2->fetchALL(PDO::FETCH_OBJ);
 try {
             //$conn nous permettra d'accéder au connecteur PDO
 
