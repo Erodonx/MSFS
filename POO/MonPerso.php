@@ -28,7 +28,7 @@ echo Appel($p);
 $aled = new Employe();
 $aled ->setNom("Duplan");
 $aled ->setPrenom("Robert");
-$aled ->setDate("2024-11-08 UTC");
+$aled ->setDate("2012-11-08 UTC");
 $aled ->setFonction("Comptable");
 $aled ->setSalaire('3000');
 $aled ->setService('Comptabilité');

@@ -154,7 +154,7 @@ public function transfertBanque($date)
     {
      if ($annee=='Il y a une erreur dans la saisie de l\'employe ! DUCON')
      {
-        return 'ducon DUCOUP Y\'a pas de prime';
+        return 'Idiot, DUCOUP il n\'y a pas de prime';
      }else{
 
      if ($annee>0)
