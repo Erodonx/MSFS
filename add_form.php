@@ -12,7 +12,7 @@
 <?php
 include 'pdo_login.php';
 $stmt = $conn->query("SELECT artist_name,artist_id FROM artist");
-$wallahzeubi= $stmt->fetchALL(PDO::FETCH_OBJ);
+$bddvar= $stmt->fetchALL(PDO::FETCH_OBJ);
 ?>
 <div class="container-fluid">
 <div class="row"><h2>Ajouter un vinyle</h2></div>
@@ -30,9 +30,9 @@ $wallahzeubi= $stmt->fetchALL(PDO::FETCH_OBJ);
                     <div class="col-12">
                         <label for="artist">Artist</label><br><select name="artist">
                         <option value="">--Please select an artist--</option>
-                        <?php foreach ($wallahzeubi as $zeubi)
+                        <?php foreach ($bddvar as $var)
                         {
-                         echo '<option value="'.$zeubi->artist_id.'">'.$zeubi->artist_name.'</option>';
+                         echo '<option value="'.$var->artist_id.'">'.$var->artist_name.'</option>';
                        }
                        echo '</select>';
                        ?>
