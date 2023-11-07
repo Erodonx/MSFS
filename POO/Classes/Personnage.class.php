@@ -121,12 +121,14 @@ class Employe {
      return 'Il y a une erreur dans la saisie de l\'employe ! DUCON';
     }else
     {
-
-    if (strpos($texte,'0')>-1&&(strpos($texte,'0'))<2)
+    if (strpos($texte,'0')>-1&&($texte[2]!='0'))
     {
     $texte = explode('0',$texte);
     $nombreAnnee = $texte[1];
     return $nombreAnnee;
+    }else if (($texte[1]=='0')&&($texte[2]=='0')){
+     $nombreAnnee='0';
+     return $nombreAnnee;
     }else{
      $texte = explode('+',$texte);
      $nombreAnnee = $texte[1];
@@ -134,6 +136,46 @@ class Employe {
     }
 }
 }
+public function transfertBanque($date)
+{
+   if ($date=='11-30')
+   {
+
+   $texte = 'La banque a été contacté le transfert est effectué';
+   return $texte;
+   }
+   else
+   {
+    $texte = 'Nous ne sommes pas le 30 Novembre, la banque n\'a pas été contactée';
+    return $texte;
+   }
+}
+    public function Prime($salaire,$annee)
+    {
+     if ($annee=='Il y a une erreur dans la saisie de l\'employe ! DUCON')
+     {
+        return 'ducon DUCOUP Y\'a pas de prime';
+     }else{
+
+     if ($annee>0)
+     {
+     $coef = $annee*0.02+0.05;
+     $prime=$salaire*$coef;
+     $jourActuel = new DateTime();
+     $jourBanque = $jourActuel-> format('m-d');
+     $transfert = $this->transfertBanque($jourBanque);
+     $concat =$prime. '€ ' . $transfert;
+     return $concat;
+    }else
+    {
+     $prime = $salaire*0.05;
+     $transfert = $this->transfertBanque($jourBanque);
+     $concat =$prime. '€ ' . $transfert;
+     return $concat;
+    }
+}
+}
+
 }
 
 

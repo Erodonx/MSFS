@@ -11,7 +11,7 @@ function Employe($emp){
     echo 'Vous consultez les informations de l\'employé mentionné :  <br>';
     echo 'Son identité : ' . $emp->getNom() . ' ' . $emp->getPrenom() . '<br>';
     echo 'Sa date d\'embauche : ' . $emp->getDate()->format('Y-m-d') . '<br>';
-    echo 'Le nombre d\'année passée au sein de l\'entreprise : ' . $emp->Anciennete($emp->getDate()) . '<br>';
+    echo 'Le nombre d\'année passée au sein de l\'entreprise : ' . $emp->Anciennete($emp->getDate()) .' Dans ce cas, la prime s\'élève à : ' . $emp->Prime($emp->getSalaire(),$emp->Anciennete($emp->getDate())) . ' <br>';
     echo 'Sa fonction et son salaire : ' . $emp->getFonction() .' '. $emp->getSalaire() . ' € <br>';
     echo 'Son service : ' . $emp->getService();
 }
@@ -28,7 +28,7 @@ echo Appel($p);
 $aled = new Employe();
 $aled ->setNom("Duplan");
 $aled ->setPrenom("Robert");
-$aled ->setDate("2013-11-07 UTC");
+$aled ->setDate("2024-11-08 UTC");
 $aled ->setFonction("Comptable");
 $aled ->setSalaire('3000');
 $aled ->setService('Comptabilité');
