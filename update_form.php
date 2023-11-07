@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,85 +9,93 @@
 </head>
 <body>
 <?php
+$vari=$_GET['disc_id'];
 include 'pdo_login.php';
-$stmt = $conn->query("SELECT artist_name,artist_id FROM artist");
-$wallahzeubi= $stmt->fetchALL(PDO::FETCH_OBJ);
+$stmt = $conn->query("SELECT * FROM artist join disc ON disc.artist_id=artist.artist_id WHERE disc_id = ".$vari."");
+$stmt2 = $conn->query("SELECT * FROM artist");
+$wallahzeubi= $stmt2->fetchALL(PDO::FETCH_OBJ);
 ?>
 <div class="container-fluid">
-<div class="row"><h2>Ajouter un vinyle</h2></div>
-<form action="add_script.php" class="w-100 m-5" name="form1" method="post">
-                <!--onsubmit="return checkForm(this);"-->
-
-                <div class="row pt-5">
+<div class="row"><h2>Modifier un vinyle</h2></div>
+<form action="update_script.php" class="w-100 m-5" name="form1" method="post">
+<?php 
+    while ($row = $stmt->fetch())
+    {
+    echo '      <div class="row pt-5">
                     <div class="col-12">
                         <label for="title">Title</label><br><input class="w-100" type="text" name="title"
-                            placeholder="Enter title">
+                            value="'.$row['disc_title'].'">
                         <span class="text-danger" id="defaultname"></span>
                     </div>
                 </div>
                 <div class="row pt-5">
-                    <div class="col-12">
-                        <label for="artist">Artist</label><br><select name="artist">
-                        <option value="">--Please select an artist--</option>
-                        <?php foreach ($wallahzeubi as $zeubi)
-                        {
-                         echo '<option value="'.$zeubi->artist_id.'">'.$zeubi->artist_name.'</option>';
-                       }
-                       echo '</select>';
-                       ?>
-                    </div>
+                <div class="col-12">
+                <label for="artist">Artist</label><br><select name="artist">
+                <option value="'.$row['artist_id'].'">'.$row['artist_name'].'</option>';
+                foreach ($wallahzeubi as $zeubi)
+                {
+                 echo '<option value="'.$zeubi->artist_id.'">'.$zeubi->artist_name.'</option>';
+               }
+               echo '</select>
+               
+            </div>
                 </div>
                 <div class="row pt-5">
                     <div class="col-12">
-                        <label for="year">Year</label><br><input class="w-100" type="year" name="year"
-                            placeholder="Enter year">
+                        <label for="year">Year</label><br><input class="w-100" type="text" name="year"
+                            value="'.$row['disc_year'].'">
                         <span class="text-danger" id="defaultname"></span>
                     </div>
                 </div>
                 <div class="row pt-5">
                     <div class="col-12">
                         <label for="genre">Genre</label><br><input class="w-100" type="text" name="genre"
-                            placeholder="Enter genre(Rock,POp,Prog ...)">
+                            value="'.$row['disc_genre'].'">
                         <span class="text-danger" id="defaultname"></span>
                     </div>
                 </div>
                 <div class="row pt-5">
                     <div class="col-12">
                         <label for="label">Label</label><br><input class="w-100" type="text" name="label"
-                            placeholder="Enter label (EMI, Warner, PolyGram, Univers sale ...)">
+                           value="'.$row['disc_label'].'">
                         <span class="text-danger" id="defaultname"></span>
                     </div>
                 </div>
                 <div class="row pt-5">
                     <div class="col-12">
                         <label for="price">Price</label><br><input class="w-100" type="text" name="price"
-                            placeholder="">
+                            value="'.$row['disc_price'].'">
                         <span class="text-danger" id="defaultname"></span>
                     </div>
                 </div>
                 <div class="row pt-5">
-                    <div class="col-12">
-                        <label for="picture">Picture</label><br><input type="file" class="w-100" name="picture">
-                        <span class="text-danger" id="defaultnamez"></span>
-                    </div>
-</div>
+                <div class="col-12">
+                    <label for="picture">Picture</label><br><input type="file" class="w-100" name="picture">
+                    <span class="text-danger" id="defaultnamez"></span>
+                </div>
                 <div class="row d-none d-lg-flex py-5">
-
+                <input type="hidden" name="secret" value="'.$vari.'">
                 </div>
                 
                 <div class="row d-none d-lg-flex pt-5 pb-5">
 
                 </div>
                 <div class="row pb-5">
-                    <div class="col-6 d-flex justify-content-center">
-                        <button type="submit" class="btn btn-secondary btn-lg d-inline">Envoyer</button>
+                    <div class="col-4 d-flex justify-content-center">
+                        <button type="submit" class="btn btn-secondary btn-lg d-inline">Modifier</button>
                     </div>
-                    <div class="col-6 d-flex justify-content-center">
+                    <div class="col-4 d-flex justify-content-center">
+                        <button type="reset" class="btn btn-secondary btn-lg d-inline">Supprimer</button>
+                    </div>
+                    <div class="col-4 d-flex justify-content-center">
                         <button type="reset" class="btn btn-secondary btn-lg d-inline">Annuler</button>
                     </div>
                 </div>
 </form>
 </div>
+';
+    }
+?>
 
   
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
