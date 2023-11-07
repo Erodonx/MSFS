@@ -13,7 +13,7 @@ $vari=$_GET['disc_id'];
 include 'pdo_login.php';
 $stmt = $conn->query("SELECT * FROM artist join disc ON disc.artist_id=artist.artist_id WHERE disc_id = ".$vari."");
 $stmt2 = $conn->query("SELECT * FROM artist");
-$wallahzeubi= $stmt2->fetchALL(PDO::FETCH_OBJ);
+$bddvar= $stmt2->fetchALL(PDO::FETCH_OBJ);
 ?>
 <div class="container-fluid">
 <div class="row"><h2>Modifier un vinyle</h2></div>
@@ -32,9 +32,9 @@ $wallahzeubi= $stmt2->fetchALL(PDO::FETCH_OBJ);
                 <div class="col-12">
                 <label for="artist">Artist</label><br><select name="artist">
                 <option value="'.$row['artist_id'].'">'.$row['artist_name'].'</option>';
-                foreach ($wallahzeubi as $zeubi)
+                foreach ($bddvar as $var)
                 {
-                 echo '<option value="'.$zeubi->artist_id.'">'.$zeubi->artist_name.'</option>';
+                 echo '<option value="'.$var->artist_id.'">'.$var->artist_name.'</option>';
                }
                echo '</select>
                

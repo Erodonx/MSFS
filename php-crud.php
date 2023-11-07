@@ -17,8 +17,8 @@ $pair=0;
 include 'pdo_login.php';
 $stmt = $conn->query("SELECT * FROM disc JOIN artist ON disc.artist_id=artist.artist_id");
 $stmt2 = $conn->query("SELECT * FROM disc");        
-$bite= $stmt2->fetchALL(PDO::FETCH_OBJ);
-echo '<h1>LISTES LES DISQUES('.count($bite).')</h1><a href="add_form.php" class="btn btn-primary d-flex text-center position-absolute commands2">Ajouter</a></div><div class="row">';
+$bddvar= $stmt2->fetchALL(PDO::FETCH_OBJ);
+echo '<h1>LISTES LES DISQUES('.count($bddvar).')</h1><a href="add_form.php" class="btn btn-primary d-flex text-center position-absolute commands2">Ajouter</a></div><div class="row">';
 while ($row = $stmt->fetch()) {
     $pair=$pair+1;
     echo '<div class="col-6">
