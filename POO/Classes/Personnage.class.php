@@ -118,7 +118,7 @@ class Employe {
     $texte = $Anciennete -> format("%R%Y");
     if (strpos($texte,'-')>-1)
     {
-     return 'Il y a une erreur dans la saisie de l\'employe ! DUCON';
+     return 'ERROR || Invalid embauche date';
     }else
     {
     if (strpos($texte,'0')>-1&&($texte[2]!='0'))
@@ -152,17 +152,17 @@ public function transfertBanque($date)
 }
     public function Prime($salaire,$annee)
     {
-     if ($annee=='Il y a une erreur dans la saisie de l\'employe ! DUCON')
+     if ($annee=='ERROR || Invalid embauche date')
      {
-        return 'Idiot, DUCOUP il n\'y a pas de prime';
+        return 'Invalid saisie || so there will be no prime for mister';
      }else{
+        $jourActuel = new DateTime();
+        $jourBanque = $jourActuel-> format('m-d');
 
      if ($annee>0)
      {
      $coef = $annee*0.02+0.05;
      $prime=$salaire*$coef;
-     $jourActuel = new DateTime();
-     $jourBanque = $jourActuel-> format('m-d');
      $transfert = $this->transfertBanque($jourBanque);
      $concat =$prime. '€ ' . $transfert;
      return $concat;
