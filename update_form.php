@@ -17,7 +17,7 @@ $bddvar= $stmt2->fetchALL(PDO::FETCH_OBJ);
 ?>
 <div class="container-fluid">
 <div class="row"><h2>Modifier un vinyle</h2></div>
-<form action="update_script.php" class="w-100 m-5" name="form1" method="post">
+<form action="update_script.php" class="w-100 m-5" name="form1" method="post" enctype='multipart/form-data'>
 <?php 
     while ($row = $stmt->fetch())
     {

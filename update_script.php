@@ -2,8 +2,8 @@
 include 'pdo_login.php';
 $stmt2 = $conn->query("SELECT * FROM disc");
 $vari=$_POST['secret'];
-var_dump($picture['name']);
-if ($_POST['picture']=='')
+var_dump($_FILES);
+if ($_FILES['picture']['name']=='')
 {
     $stmt1 = $conn->query("SELECT * from disc");
     while ($row = $stmt1->fetch())
@@ -11,7 +11,7 @@ if ($_POST['picture']=='')
      if ($row['disc_id']==$vari)
      {
 
-     $_POST['picture']=$row['disc_picture'];
+     $_FILES['picture']['name']=$row['disc_picture'];
              
     }
     }
@@ -27,7 +27,7 @@ try {
             $stmt->bindParam(':yyear',$_POST['year']);
             $stmt->bindParam(':genre',$_POST['genre']);
             $stmt->bindParam(':price',$_POST['price']);
-            $stmt->bindParam(':picture',$_POST['picture']);
+            $stmt->bindParam(':picture',$_FILES['picture']['name']);
             $stmt->bindParam(':artist',$_POST['artist']);
             $stmt->execute();
             $conn->commit();
