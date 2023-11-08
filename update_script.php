@@ -2,15 +2,17 @@
 include 'pdo_login.php';
 $stmt2 = $conn->query("SELECT * FROM disc");
 $vari=$_REQUEST['secret'];
-echo $_REQUEST['secret'];   
 if ($_REQUEST['picture']=='')
 {
-    $stmt1 = $conn->query("SELECT * from disc WHERE disc_id=:aba ");
-    $stmt1->bindParam(':aba',$_REQUEST['secret']);
-    $stmt1->execute();
-    while ($row->$stmt->fetch())
+    $stmt1 = $conn->query("SELECT * from disc");
+    while ($row = $stmt1->fetch())
     {
+     if ($row['disc_id']==$vari)
+     {
+
      $_REQUEST['picture']=$row['disc_picture'];
+             
+    }
     }
 }
 try {
