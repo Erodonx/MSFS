@@ -35,7 +35,7 @@ function Employe($emp){
     echo ' A-t\'il droit au chèque de Noel : '. $emp->droitCheque($emp->getEnfants()).' <br>';
     if ($emp->droitCheque($emp->getEnfants())=='Oui')
     {
-     echo 'Voici donc le montant du chèque de Noël : ' . $emp->chequeNoel($emp->getEnfants()) . '€ <br><br><hr>';
+     echo 'Voici donc le montant du chèque de Noël : ' . $emp->montantCheque($emp->getEnfants()) . '€ , et son détail : '. $emp->detailCheque($emp->getEnfants()). '<br><br><hr>';
     }
 }
 $p = new Personnage(); 

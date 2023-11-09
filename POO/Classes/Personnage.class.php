@@ -195,24 +195,49 @@ public function transfertBanque($date)
 function chequeNoel($tableau)
 {
    $cheque=0;
+   $trace='';
 foreach ($tableau as $enfants)
 {
    if (($enfants>0)&&($enfants<=10))
    {
     $cheque+=20;
+    $trace=$trace . '20,';
    }else if (($enfants>10)&&($enfants<=15))
    {
        $cheque+=30;
+       $trace=$trace . '30,';
    }else if (($enfants>15)&&($enfants<=18))
    {
        $cheque+=50;
+       $trace=$trace . '50,';
    }
 }
-return $cheque;
+$trace=substr($trace,0,-1);
+$fusion=$cheque.'|'.$trace;
+return $fusion;
+}
+function montantCheque($tableau)
+{
+ $tabmontant=explode('|',$this->chequeNoel($tableau));
+ $montant=$tabmontant[0];
+ return $montant;
+}
+function detailCheque($tableau)
+{
+ $tabvaleur=explode('|',$this->chequeNoel($tableau));
+ $valeur=$tabvaleur[1];
+ $chaine="";
+ $valeur=explode(',',$valeur);
+ foreach ($valeur as $val)
+ {
+  $chaine=$chaine. ' + ' . $val;
+ }
+ return $chaine;
 }
 function droitCheque($tableau)
 {
-    $droit=$this->chequeNoel($tableau);
+    $tabdroit=explode('|',$this->chequeNoel($tableau));
+    $droit=$tabdroit[0];
     if ($droit==0)
     {
      return 'Non';
