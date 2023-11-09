@@ -306,29 +306,11 @@ class Magasin extends Employe {
         }else if ($restaurant==1)
         {
             return 'L\'employé dispose d\'un restaurant d\'entreprise'; 
-        }else{
-            return 'Erreur de saisie, données corrompues';
+        }else
+        {
+            return 'La saisie est incorrecte, les données sont corrompues';
         }
-    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 ?>

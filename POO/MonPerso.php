@@ -72,7 +72,6 @@ $employe0 -> getMagasin()->setCodePostal('80000');
 $employe0 -> getMagasin()->setVille('Amiens');
 $employe0 -> getMagasin()->setRestaurant('0');
 
-
 $employe1= new Employe();
 $employe1 ->setNom("Vabre");
 $employe1 ->setPrenom("Jacqueline");
@@ -85,7 +84,7 @@ $employe1 -> setMagasin(new Magasin())->setNom('Café & Co');
 $employe1 -> getMagasin()->setAdresse('15 rue du Soluble');
 $employe1 -> getMagasin()->setCodePostal('80000');
 $employe1 -> getMagasin()->setVille('Amiens');
-$employe1 -> getMagasin()->setRestaurant('1');
+$employe1 -> getMagasin()->setRestaurant('a');
 
 $employe2= new Employe();
 $employe2 ->setNom("Ine");
