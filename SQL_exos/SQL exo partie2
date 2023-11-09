@@ -1,0 +1,50 @@
+aselect prenom,noregion from employe join dept on nodep=nodept; 
+
+select nodep, dept.nom as "Nom du département" , employe.nom as "nom de l'employé" from employe join dept where nodep=nodept order by nodep; 
+
+select employe.nom from employe join dept where nodep=nodept AND dept.nom="Distribution"; 
+
+select employe.nom,employe.salaire,patron.nom as "nom du patron" from employe join employe as patron where patron.noemp=employe.nosup and employe.salaire>patron.salaire; 
+
+select nom,titre from employe where titre IN (select titre from employe where nom="Amartakaldire"); 
+
+
+select nom,salaire,nodep from employe where salaire > ANY (select salaire from employe where nodep='31') order by nodep and salaire; 
+
+select nom,salaire,nodep from employe where salaire > ALL (select salaire from employe where nodep='31') order by nodep and salaire; 
+
+select nom, titre from employe where nodep=31 and titre like (select titre from employe where nodep=32); 
+
+select nom, titre from employe where nodep=31 and titre not like (select titre from employe where nodep=32); 
+
+select nom,titre,salaire from employe where salaire like (select salaire from employe where nom='fairent'); 
+
+select nodep,dept.nom,employe.nom from dept left join employe on nodept=nodep order by nodep; 
+
+1.
+select count(nom),titre from employe group by titre; 
+
+2.
+select avg(salaire),sum(salaire),noregion from employe join dept ON nodep=nodept GROUP BY noregion; 
+
+3.
+select nodep,nom from employe group by nodep having count(nom) >=3; 
+
+4
+select substr(nom,1,1) from employe group by substr(nom,1,1) having count(substr(nom,1,1))>=3;
+
+5.
+select max(salaire),min(salaire),max(salaire)-min(salaire) as 'ECART DE SALAIRE' from employe; 
+6.
+select count(distinct titre) from employe; 
+
+7
+select titre,count(noemp) from employe group by titre;
+
+8.
+select distinct dept.nom, count(noemp) from employe right join dept on nodept=nodep group by dept.nom; 
+9.
+select titre, avg(salaire) from employe group by titre having avg(salaire) > any (select avg(salaire) from employe where titre="représentant"); 
+
+10.
+select count(salaire),count(tauxcom) from employe;

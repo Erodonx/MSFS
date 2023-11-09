@@ -75,8 +75,8 @@ $employe5 ->setService('Ratus');
 
 for( $i=0; $i<=5 ;$i++)
 {
-    $employe='employe'.$i;
-    echo Employe(${'employe' .$i});
+    $employe='employe'.$i; // -> employe0,employe1,employe2,employe3,employe4,employe5
+    echo Employe(${'employe'.$i});
 }
 
 

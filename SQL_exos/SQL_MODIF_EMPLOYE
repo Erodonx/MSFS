@@ -1,0 +1,18 @@
+INSERT into employe (noemp,nom,prenom,dateemb,nodep,titre,salaire)
+
+
+values (26,'Robert','Duplan',CURRENT_DATE,44,'Secrétaire EZ money',15000),(27,'Marc','Dubois',CURRENT_DATE,44,'Secrétaire EZ money',15000),(28,'Ah','zaza',CURRENT_DATE,44,'Secrétaire EZ money',15000);
+
+INSERT INTO dept(nodept,nom,noregion)
+
+values (69,'la street','5');
+
+update employe 
+
+set salaire = salaire* 1.1 where noemp=17;
+
+update dept 
+
+set nom = 'Logistique' where nodept=45;
+
+delete from employe where noemp>25;

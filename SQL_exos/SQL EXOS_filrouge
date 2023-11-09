@@ -1,0 +1,28 @@
+Ecrire des requêtes d'interrogation de la base de données : 
+
+select date_commande, nom_client,telephone_client,email_client,adresse_client,quantite*prix as "prix total de la commande" from commande join plat where plat.id=id_plat and id_plat=plat.id; 
+
+select *,categorie from plat join categorie where id_categorie=categorie.id;
+
+select categorie.libelle as "nom de la catégorie",plat.libelle as "nom du plat" from plat join categorie where id_categorie=categorie.id; 
+
+select categorie.libelle as "nom de la catégorie",count(plat.libelle) as "quantité de plat de la catégorie" from plat join categorie where id_categorie=categorie.id and plat.active='yes' group by categorie.libelle; 
+
+select sum(quantite), plat.libelle from commande join plat where id_plat=plat.id group by plat.libelle order by sum(quantite) desc; 
+
+select sum(quantite)*prix as 'prix_total',plat.libelle as 'plat le plus rémunérateur' from commande join plat on id_plat=plat.id and etat!='Annulée' group by plat.libelle having prix_total >= all (select sum(quantite)*prix from commande join plat on id_plat=plat.id and etat!='Annulée' group by plat.libelle); 
+
+select nom_client, quantite*prix from commande join plat on id_plat=plat.id AND etat!='Annulée' group by nom_client ORDER BY `quantite*prix` DESC 
+
+Ecrire des requêtes de modifications de la base de de  données
+
+1. delete from plat where active!='yes';
+
+2. delete from commande where etat='Livrée';
+
+3.
+
+4. update plat
+
+set prix = prix * 1.1 where id_categorie= (select id from categorie where categorie.libelle="Pizza")
+

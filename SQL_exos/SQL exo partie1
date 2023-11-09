@@ -1,0 +1,72 @@
+
+9.
+select nom,salaire,nodep from employe where titre="représentant" AND nodep=35 AND salaire>20000;
+
+10.
+select nom,titre,salaire from employe where titre="représentant" OR titre="président"; 
+
+11.
+select nom,titre,nodep,salaire from employe where nodep=34 and titre="représentant" or nodep=34 and titre="secrétaire"; 
+
+12.
+select nom,titre,nodep,salaire from employe where titre="représentant" OR titre="secrétaire" AND nodep=34; 
+
+13.
+select nom, salaire from employe where salaire>=20000 and salaire <=30000; 
+
+15.
+select * from employe where nom like "H%"; 
+
+16.
+select nom from employe where nom like "%n"; 
+
+17.
+select nom from employe where nom like "__u%"; 
+
+18.
+select salaire,nom from employe where nodep=41 Order by salaire; 
+
+19.
+select salaire,nom from employe where nodep=41 Order by salaire DESC; 
+
+20.
+select titre,salaire,nom from employe ORDER BY titre, salaire DESC; 
+
+21.
+select tauxcom,salaire,nom from employe ORDER by tauxcom; 
+
+select tauxcom,salaire,nom from employe where tauxcom IS NOT NULL OR tauxcom IS NULL ORDER by tauxcom;  (avec les taux de comission de 0)
+
+select tauxcom,salaire,nom from employe where tauxcom IS NOT NULL ORDER by tauxcom; (sans les taux de comission de 0);
+
+22.
+select nom,salaire,tauxcom,titre from employe where tauxcom is NULL; 
+
+23.
+select nom,salaire,tauxcom,titre from employe where tauxcom is NOT NULL; 
+
+24.
+SELECT NOM,salaire,tauxcom,titre from employe where tauxcom is not null and tauxcom <15; 
+
+25.
+SELECT NOM,salaire,tauxcom,titre from employe where tauxcom is not null and tauxcom >15; 
+26.
+select nom,salaire,tauxcom,tauxcom*salaire as comission from employe where tauxcom is not null; 
+
+27.
+select nom,salaire,tauxcom,tauxcom*salaire as "Commission issou de l'employe " from employe where tauxcom is not null order by tauxcom; 
+
+28.
+select CONCAT(prenom,nom) as "issou de la chankla" from employe; 
+
+29.
+select substring(nom,1,5) from employe; 
+
+30.
+select nom,locate('r',nom) as "Rang de la lettre r" from employe; 
+
+31.
+SELECT nom,UPPER(NOM),LOWER(NOM) from employe where nom="vrante"; 
+
+32.
+select nom,length(nom) as "Taille du nom" from employe; 
