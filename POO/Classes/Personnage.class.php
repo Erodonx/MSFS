@@ -192,7 +192,35 @@ public function transfertBanque($date)
     }
 }
 }
-
+function chequeNoel($tableau)
+{
+   $cheque=0;
+foreach ($tableau as $enfants)
+{
+   if (($enfants>0)&&($enfants<=10))
+   {
+    $cheque+=20;
+   }else if (($enfants>10)&&($enfants<=15))
+   {
+       $cheque+=30;
+   }else if (($enfants>15)&&($enfants<=18))
+   {
+       $cheque+=50;
+   }
+}
+return $cheque;
+}
+function droitCheque($tableau)
+{
+    $droit=$this->chequeNoel($tableau);
+    if ($droit==0)
+    {
+     return 'Non';
+    }else 
+    {
+     return 'Oui';
+    }
+}
 }
 class Magasin extends Employe {
 

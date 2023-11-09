@@ -16,7 +16,27 @@ function Employe($emp){
     echo 'Son service : ' . $emp->getService() .'<br>';
     echo 'le nom de son magasin : ' . $emp->getMagasin()->getNom().' son adresse : '. $emp->getMagasin()->getAdresse() . '<br>';
     echo 'le code postal du Magasin :' . $emp->getMagasin()->getCodePostal().' le nom de la ville ' . $emp->getMagasin()->getVille() . '<br>';
-    echo 'Son mode de restauration : '. $emp->getMagasin()->Ticket($emp->getMagasin()->getRestaurant()). '<br><br><hr>';
+    echo 'Son mode de restauration : '. $emp->getMagasin()->Ticket($emp->getMagasin()->getRestaurant()). '<br>';
+    echo 'l\'age des enfants : ';
+    $count= count($emp->getEnfants());
+    $i=0;
+    foreach ($emp->getEnfants() as $enfants) 
+            {
+                $i++;
+                if ($i != $count)
+                {
+                echo $enfants.',';
+                }
+                else
+                {
+                 echo $enfants;
+                }
+            } 
+    echo ' A-t\'il droit au chèque de Noel : '. $emp->droitCheque($emp->getEnfants()).' <br>';
+    if ($emp->droitCheque($emp->getEnfants())=='Oui')
+    {
+     echo 'Voici donc le montant du chèque de Noël : ' . $emp->chequeNoel($emp->getEnfants()) . '€ <br><br><hr>';
+    }
 }
 $p = new Personnage(); 
 
@@ -35,6 +55,7 @@ $employe0 ->setDate("2023-10-09 UTC");
 $employe0 ->setFonction("Comptable");
 $employe0 ->setSalaire('3000');
 $employe0 ->setService('Comptabilité');
+$employe0 ->setEnfants(Array ('15','10','18'));
 $employe0 -> setMagasin(new Magasin())->setNom('Cobalt');
 $employe0 -> getMagasin()->setAdresse('21 rue de la Mine');
 $employe0 -> getMagasin()->setCodePostal('80000');
