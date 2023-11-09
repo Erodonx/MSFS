@@ -61,7 +61,9 @@ class Employe {
     private $_fonction;
     private $_salaire;
     private $_service;
-
+    private $_magasin;
+    private $_enfants;
+    
     public function setNom($sNom){
         return $this->_nom = $sNom;
        }
@@ -87,6 +89,16 @@ class Employe {
     {
         return $this -> _service = $sService;
     }
+    public function setMagasin($sMagasin){
+        return $this->_magasin = new Magasin ($sMagasin);
+       }
+    public function setEnfants($sEnfants){
+        return $this->_enfants = $sEnfants;
+       }
+       public function getMagasin() 
+       {
+           return $this->_magasin;
+       }
     public function getNom() 
     {
         return $this->_nom;
@@ -111,6 +123,10 @@ class Employe {
     {
         return $this -> _service;
     }
+    public function getEnfants()
+    {
+        return $this-> _enfants;
+    }
     public function Anciennete($embauche)
     {
     $dateActuelle= new DateTime();
@@ -134,6 +150,7 @@ class Employe {
      $nombreAnnee = $texte[1];
      return $nombreAnnee;
     }
+
 }
 }
 public function transfertBanque($date)
@@ -177,8 +194,70 @@ public function transfertBanque($date)
 }
 
 }
+class Magasin extends Employe {
 
+    private $_nom;
+    private $_adresse;
+    private $_code_postal;
+    private $_ville;
+    private $_restaurant;
 
+     public function setNom($sNom){
+        return $this->_nom = $sNom;
+       }
+     public function setAdresse($sAdresse){
+        return $this ->_adresse= $sAdresse;
+     }
+     public function setCodePostal($sCodePostal){
+        return $this -> _code_postal = $sCodePostal;
+     }
+     public function setVille($sVille)
+     {
+        return $this -> _ville= $sVille;
+     }
+     public function setRestaurant($sRestaurant){
+        if (($sRestaurant==0)||($sRestaurant==1))
+        {
+        return $this->_restaurant = $sRestaurant;
+        }
+        else
+        {
+         return $this->_restaurant ='Erreur de saisie!';
+        }
+       }
+     public function getNom() 
+     {
+         return $this->_nom;
+     }
+     public function getAdresse() 
+     {
+         return $this->_adresse;
+     }
+     public function getCodePostal() 
+     {
+         return $this->_code_postal;
+     }
+     public function getVille() 
+     {
+         return $this->_ville;
+     }
+     public function getRestaurant() 
+     {
+         return $this->_restaurant;
+     }
+    public function Ticket($restaurant)
+    {
+        if ($restaurant==0)
+        {
+            return 'L\'employé bénéficie de ticket restaurant';
+        }else if ($restaurant==1)
+        {
+            return 'L\'employé dispose d\'un restaurant d\'entreprise'; 
+        }else{
+            return 'Erreur de saisie, données corrompues';
+        }
+    }
+}
 
 
 

@@ -15,8 +15,7 @@ function Employe($emp){
     echo 'Sa fonction et son salaire : ' . $emp->getFonction() .' '. $emp->getSalaire() . ' € <br>';
     echo 'Son service : ' . $emp->getService() .'<br>';
     echo 'le nom de son magasin : ' . $emp->getMagasin()->getNom().' son adresse : '. $emp->getMagasin()->getAdresse() . '<br>';
-    echo 'le code postal du Magasin :' . $emp->getMagasin()->getCodePostal().' le nom de la ville ' . $emp->getMagasin()->getVille() . '<br>';
-    echo 'Son mode de restauration : '. $emp->getMagasin()->Ticket($emp->getMagasin()->getRestaurant()). '<br><br><hr>';
+    echo 'le code postal du Magasin :' . $emp->getMagasin()->getCodePostal().' le nom de la ville ' . $emp->getMagasin()->getVille() . '<br><br><hr>';
 }
 $p = new Personnage(); 
 
@@ -36,10 +35,9 @@ $employe0 ->setFonction("Comptable");
 $employe0 ->setSalaire('3000');
 $employe0 ->setService('Comptabilité');
 $employe0 -> setMagasin(new Magasin())->setNom('Cobalt');
-$employe0 -> getMagasin()->setAdresse('21 rue de la Mine');
-$employe0 -> getMagasin()->setCodePostal('80000');
-$employe0 -> getMagasin()->setVille('Amiens');
-$employe0 -> getMagasin()->setRestaurant('0');
+$employe0 -> setMagasin(new Magasin())->setAdresse('21 rue de la Mine');
+$employe0 -> setMagasin(new Magasin())->setCodePostal('80000');
+$employe0 -> setMagasin(new Magasin())->setVille('Amiens');
 
 
 $employe1= new Employe();
