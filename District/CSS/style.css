@@ -1,0 +1,74 @@
+.logo{
+    max-width: 150px;
+}
+.redlogo{
+    background-color : #970747;
+}
+.redsocials{
+    background-color:rgba(100, 5, 52); height:40px;
+}
+.background{
+    background-image: url('/FRONT/STATIQUE/BOOTSTRAP/Assets/bg.jpg');
+    min-height: 100px; 
+    max-height:200px;
+
+}
+.searchbar{
+    min-width:400px;
+}
+.parallax{
+    background-attachment: fixed;
+    background-size:cover;
+    background-image: url(../BOOTSTRAP/Assets/food/resized/itachi-and-kisame-in-the-rain.jpg);
+}
+a:hover{
+    text-decoration: none;
+}
+.card{
+ transition: transform .5s;   
+}
+.card:hover{
+
+ background-color: lightpink !important;
+ -ms-transform: scale(1.1);
+ -webkit-transform: scale(1.1);
+ transform:scale(1.1);
+}
+#card_putin:hover{
+background-color: red !important;
+-ms-transform:scale(2);
+-webkit-transform: scale(2);
+transform:scale(2);
+animation: rotate 18s linear infinite; animation-delay: 0s;}
+    @keyframes rotate {
+        0% {rotate: 0deg;}
+        100% {rotate: 360deg;}
+    
+}
+#platbg{
+    height: 134px;
+}
+#plat{
+    display:none;
+}
+#platcol{
+    display:none;
+}
+#platcolpoutine{
+    display:none;
+}
+#formplat{
+    display:none;
+}
+#nonpoutine{
+    display:none;
+}
+#poutine{
+    display:none;
+}
+#card_putin{
+    transition: transform 18s;
+}
+.commands{
+    bottom:0; right:0;
+}
