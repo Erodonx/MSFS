@@ -1,7 +1,10 @@
 <?php
 
 include 'Bdd_auth.php';
+
 $stmt = $conn->query("SELECT * FROM plat");
+
+//Ajout des plats asiatiques
 $id=1;
 $libelle='Sushi maki';
 $description='Sushis maki, un régal,
@@ -9,7 +12,7 @@ saumon frais pêché de la veille ! Pêché avec amour et soin.';
 $prix=8.50;
 $image='sushi_maki.jpeg'; //'i14425-recette-de-sushis.jpeg'
 $id_categorie=12;
-$active='Yes';
+  $active='Yes';
 
 $id1=2;
 $libelle1='Boeuf caramel';
@@ -31,11 +34,76 @@ $description3='Du riz cantonais, un
 classique quand on veux manger asiatique.';
 $prix3=12.00;
 $image3='riz_cantonais.jpg';
+   
+    $id4=5;
+    $libelle4='Infamous Burger';
+    $description4='L\'infamous
+    burger, ce burger est extra, idéal pour les gros mangeurs et ceux qui ont
+    envie de se faire péter la panse.';
+    $prix4=7.5;
+    $image4='cheesburger.jpg';
+    $id_categorie1=5;
+
+    $id5=6;
+    $libelle5='Cheeseburger';
+    $description5='Le classique, cheeseburger,
+    un burger pour ceux qui ont envie de rester sur les acquis en terme de
+    burger. Il contient des tomates de la salade et des oignons.';
+    $image5='hamburger_resized.jpg';
+
+    $id6=7;
+    $libelle6='Double beef Burger';
+    $description6='Le double beef burger, la
+    viande est tellement épaisse que quand vous prenez une bouchée. Elle absorbe
+    tout l\'espace dans la bouche, idéal pour les enfants ça les empêche de
+    parler la bouche pleine !';
+    $image6='double_beef.jpg'; //Food-Name-6340.jpg
+
+    $id7=8;
+    $libelle7='Wide_putin_burger';
+    $description7='Le Putin Burger,
+    une bouchée de ce délicieux burger et vous êtes pris d\'une envie
+    irrépressible d\'envahir l\'Ukraine et ainsi exhiber votre
+    gigantesque table en marbre au monde entier';
+    $prixShiney=82.00;
+    $image7='Putin_hidden.png'; //Food-Name-433.png
+
+    $id8=9;
+    $libelle8='Pâte crême';
+    $description8='Pâtes à la crème et aux
+    herbes, un plat subtil pour les palais affûtés, parmesan inclus a disposer
+    soi-même.';
+    $image8='pasta_cat.jpg';
+    $id_categorie2=10;
+
+    $id9=10;
+    $libelle9='Pâtes bolognaise';
+    $description9='Pâtes bolognaise, un
+    classique, avec un petit ajout secret à la recette qui vous plaîra
+    certainement.';
+    $image9='Bôlolo.jpeg';
+
+    $id10=11;
+    $libelle10='Pâtes carbonara';
+    $description10='Pâtes carbonara, avec de la
+    crême onctueuse, le jaune d\'oeuf est en option si vous le souhaitez.';
+    $prix5=13.00;
+    $image10='Carbo.jpeg';
+
+    $id11=12;
+    $libelle11='Penne saumon';
+    $description11='Penne au saumon, pour ceux
+    qui ont envie de manger des pâtes fraîches avec du bon poisson.';
+    $prix6=15.00;
+    $image11='penne_saumon.jpg'; //pennes-saumon-creme_istock.jpg
+    
+
+
 try {
     //$conn nous permettra d'accéder au connecteur PDO
 
-    $conn->beginTransaction();
-    // Ajouter une nouvelle catégorie
+     $conn->beginTransaction();
+
     $stmt = $conn->prepare("INSERT INTO plat (libelle, description, prix, image, active, id_categorie, id) VALUES (:libelle, :description, :prix, :image, :active, :id_categorie, :id)");
     $stmt->bindParam(':id',$id);
     $stmt->bindParam(':libelle',$libelle);
@@ -75,8 +143,89 @@ try {
     $stmt->bindParam(':id_categorie',$id_categorie);
     $stmt->bindParam(':active',$active);
     $stmt->execute();
+
+
+    $stmt = $conn->prepare("UPDATE plat SET libelle=:libelle, description=:description, prix=:prix, image=:image, id_categorie=:id_categorie, active=:active   WHERE id=:id");
+    $stmt->bindParam(':id',$id4);
+    $stmt->bindParam(':libelle',$libelle4);
+    $stmt->bindParam(':description',$description4);
+    $stmt->bindParam(':prix',$prix4);
+    $stmt->bindParam(':image',$image4);
+    $stmt->bindParam(':id_categorie',$id_categorie1);
+    $stmt->bindParam(':active',$active);
+    $stmt->execute();
+
+    $stmt = $conn->prepare("INSERT INTO plat (libelle, description, prix, image, active, id_categorie, id) VALUES (:libelle, :description, :prix, :image, :active, :id_categorie, :id)");
+    $stmt->bindParam(':id',$id5);
+    $stmt->bindParam(':libelle',$libelle5);
+    $stmt->bindParam(':description',$description5);
+    $stmt->bindParam(':prix',$prix);
+    $stmt->bindParam(':image',$image5);
+    $stmt->bindParam(':id_categorie',$id_categorie1);
+    $stmt->bindParam(':active',$active);
+    $stmt->execute();
     
+    $stmt = $conn->prepare("INSERT INTO plat (libelle, description, prix, image, active, id_categorie, id) VALUES (:libelle, :description, :prix, :image, :active, :id_categorie, :id)");
+    $stmt->bindParam(':id',$id6);
+    $stmt->bindParam(':libelle',$libelle6);
+    $stmt->bindParam(':description',$description6);
+    $stmt->bindParam(':prix',$prix1);
+    $stmt->bindParam(':image',$image6);
+    $stmt->bindParam(':id_categorie',$id_categorie1);
+    $stmt->bindParam(':active',$active);
+    $stmt->execute();
     
+    $stmt = $conn->prepare("INSERT INTO plat (libelle, description, prix, image, active, id_categorie, id) VALUES (:libelle, :description, :prix, :image, :active, :id_categorie, :id)");
+    $stmt->bindParam(':id',$id7);
+    $stmt->bindParam(':libelle',$libelle7);
+    $stmt->bindParam(':description',$description7);
+    $stmt->bindParam(':prix',$prixShiney);
+    $stmt->bindParam(':image',$image7);
+    $stmt->bindParam(':id_categorie',$id_categorie1);
+    $stmt->bindParam(':active',$active);
+    $stmt->execute();
+
+    $stmt = $conn->prepare("UPDATE plat SET libelle=:libelle, description=:description, prix=:prix, image=:image, id_categorie=:id_categorie, active=:active   WHERE id=:id");
+    $stmt->bindParam(':id',$id8);
+    $stmt->bindParam(':libelle',$libelle8);
+    $stmt->bindParam(':description',$description8);
+    $stmt->bindParam(':prix',$prix3);
+    $stmt->bindParam(':image',$image8);
+    $stmt->bindParam(':id_categorie',$id_categorie2);
+    $stmt->bindParam(':active',$active);
+    $stmt->execute();
+    
+    $stmt = $conn->prepare("UPDATE plat SET libelle=:libelle, description=:description, prix=:prix, image=:image, id_categorie=:id_categorie, active=:active   WHERE id=:id");
+    $stmt->bindParam(':id',$id9);
+    $stmt->bindParam(':libelle',$libelle9);
+    $stmt->bindParam(':description',$description9);
+    $stmt->bindParam(':prix',$prix4);
+    $stmt->bindParam(':image',$image9);
+    $stmt->bindParam(':id_categorie',$id_categorie2);
+    $stmt->bindParam(':active',$active);
+    $stmt->execute();
+
+    $stmt = $conn->prepare("INSERT INTO plat (libelle, description, prix, image, active, id_categorie, id) VALUES (:libelle, :description, :prix, :image, :active, :id_categorie, :id)");
+    $stmt->bindParam(':id',$id10);
+    $stmt->bindParam(':libelle',$libelle10);
+    $stmt->bindParam(':description',$description10);
+    $stmt->bindParam(':prix',$prix5);
+    $stmt->bindParam(':image',$image10);
+    $stmt->bindParam(':id_categorie',$id_categorie2);
+    $stmt->bindParam(':active',$active);
+    $stmt->execute();
+    
+    $stmt = $conn->prepare("UPDATE plat SET libelle=:libelle, description=:description, prix=:prix, image=:image, id_categorie=:id_categorie, active=:active   WHERE id=:id");
+    $stmt->bindParam(':id',$id11);
+    $stmt->bindParam(':libelle',$libelle11);
+    $stmt->bindParam(':description',$description11);
+    $stmt->bindParam(':prix',$prix6);
+    $stmt->bindParam(':image',$image11);
+    $stmt->bindParam(':id_categorie',$id_categorie2);
+    $stmt->bindParam(':active',$active);
+    $stmt->execute();
+    
+
     $conn->commit();
 
     echo 'Modification dans la base de donnée effectué ! :)';
