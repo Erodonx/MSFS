@@ -34,68 +34,81 @@ $description3='Du riz cantonais, un
 classique quand on veux manger asiatique.';
 $prix3=12.00;
 $image3='riz_cantonais.jpg';
+
+$id_categorie1=5;
    
-    $id4=5;
-    $libelle4='Infamous Burger';
-    $description4='L\'infamous
-    burger, ce burger est extra, idéal pour les gros mangeurs et ceux qui ont
-    envie de se faire péter la panse.';
-    $prix4=7.5;
-    $image4='cheesburger.jpg';
-    $id_categorie1=5;
+$id4=5;
+$libelle4='Infamous Burger';
+$description4='L\'infamous
+burger, ce burger est extra, idéal pour les gros mangeurs et ceux qui ont
+envie de se faire péter la panse.';
+$prix4=7.5;
+$image4='cheesburger.jpg';
 
-    $id5=6;
-    $libelle5='Cheeseburger';
-    $description5='Le classique, cheeseburger,
-    un burger pour ceux qui ont envie de rester sur les acquis en terme de
-    burger. Il contient des tomates de la salade et des oignons.';
-    $image5='hamburger_resized.jpg';
 
-    $id6=7;
-    $libelle6='Double beef Burger';
-    $description6='Le double beef burger, la
-    viande est tellement épaisse que quand vous prenez une bouchée. Elle absorbe
-    tout l\'espace dans la bouche, idéal pour les enfants ça les empêche de
-    parler la bouche pleine !';
-    $image6='double_beef.jpg'; //Food-Name-6340.jpg
+$id5=6;
+$libelle5='Cheeseburger';
+$description5='Le classique, cheeseburger,
+un burger pour ceux qui ont envie de rester sur les acquis en terme de
+burger. Il contient des tomates de la salade et des oignons.';
+$image5='hamburger_resized.jpg';
 
-    $id7=8;
-    $libelle7='Wide_putin_burger';
-    $description7='Le Putin Burger,
-    une bouchée de ce délicieux burger et vous êtes pris d\'une envie
-    irrépressible d\'envahir l\'Ukraine et ainsi exhiber votre
-    gigantesque table en marbre au monde entier';
-    $prixShiney=82.00;
-    $image7='Putin_hidden.png'; //Food-Name-433.png
+$id6=7;
+$libelle6='Double beef Burger';
+$description6='Le double beef burger, la
+viande est tellement épaisse que quand vous prenez une bouchée. Elle absorbe
+tout l\'espace dans la bouche, idéal pour les enfants ça les empêche de
+parler la bouche pleine !';
+$image6='double_beef.jpg'; //Food-Name-6340.jpg
 
-    $id8=9;
-    $libelle8='Pâte crême';
-    $description8='Pâtes à la crème et aux
-    herbes, un plat subtil pour les palais affûtés, parmesan inclus a disposer
-    soi-même.';
-    $image8='pasta_cat.jpg';
-    $id_categorie2=10;
+$id7=8;
+$libelle7='Wide_putin_burger';
+$description7='Le Putin Burger,
+une bouchée de ce délicieux burger et vous êtes pris d\'une envie
+irrépressible d\'envahir l\'Ukraine et ainsi exhiber votre
+gigantesque table en marbre au monde entier';
+$prixShiney=82.00;
+$image7='Putin_hidden.png'; //Food-Name-433.png
 
-    $id9=10;
-    $libelle9='Pâtes bolognaise';
-    $description9='Pâtes bolognaise, un
-    classique, avec un petit ajout secret à la recette qui vous plaîra
-    certainement.';
-    $image9='Bôlolo.jpeg';
+$id_categorie2=10;    
+$id8=9;
+$libelle8='Pâte crême';
+$description8='Pâtes à la crème et aux
+herbes, un plat subtil pour les palais affûtés, parmesan inclus a disposer
+soi-même.';
+$image8='pasta_cat.jpg';
 
-    $id10=11;
-    $libelle10='Pâtes carbonara';
-    $description10='Pâtes carbonara, avec de la
-    crême onctueuse, le jaune d\'oeuf est en option si vous le souhaitez.';
-    $prix5=13.00;
-    $image10='Carbo.jpeg';
 
-    $id11=12;
-    $libelle11='Penne saumon';
-    $description11='Penne au saumon, pour ceux
-    qui ont envie de manger des pâtes fraîches avec du bon poisson.';
-    $prix6=15.00;
-    $image11='penne_saumon.jpg'; //pennes-saumon-creme_istock.jpg
+$id9=10;
+$libelle9='Pâtes bolognaise';
+$description9='Pâtes bolognaise, un
+classique, avec un petit ajout secret à la recette qui vous plaîra
+certainement.';
+$image9='Bôlolo.jpeg';
+
+$id10=11;
+$libelle10='Pâtes carbonara';
+$description10='Pâtes carbonara, avec de la
+crême onctueuse, le jaune d\'oeuf est en option si vous le souhaitez.';
+$prix5=13.00;
+$image10='Carbo.jpeg';
+
+$id11=12;
+$libelle11='Penne saumon';
+$description11='Penne au saumon, pour ceux
+qui ont envie de manger des pâtes fraîches avec du bon poisson.';
+$prix6=15.00;
+$image11='penne_saumon.jpg'; //pennes-saumon-creme_istock.jpg
+
+$id_categorie3=13;
+
+$id12=13;
+$libelle12='Salade césar';
+$description12='Une salade césar, avec oeufs,
+poulet et une bonne petite vinaigrette!';
+$image12='cesar_salad.jpg';
+
+
     
 
 
@@ -222,6 +235,16 @@ try {
     $stmt->bindParam(':prix',$prix6);
     $stmt->bindParam(':image',$image11);
     $stmt->bindParam(':id_categorie',$id_categorie2);
+    $stmt->bindParam(':active',$active);
+    $stmt->execute();
+
+    $stmt = $conn->prepare("UPDATE plat SET libelle=:libelle, description=:description, prix=:prix, image=:image, id_categorie=:id_categorie, active=:active   WHERE id=:id");
+    $stmt->bindParam(':id',$id12);
+    $stmt->bindParam(':libelle',$libelle12);
+    $stmt->bindParam(':description',$description12);
+    $stmt->bindParam(':prix',$prix2);
+    $stmt->bindParam(':image',$image12);
+    $stmt->bindParam(':id_categorie',$id_categorie3);
     $stmt->bindParam(':active',$active);
     $stmt->execute();
     
