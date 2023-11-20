@@ -71,6 +71,7 @@ $prixShiney=82.00;
 $image7='Putin_hidden.png'; //Food-Name-433.png
 
 $id_categorie2=10;    
+
 $id8=9;
 $libelle8='Pâte crême';
 $description8='Pâtes à la crème et aux
@@ -107,6 +108,35 @@ $libelle12='Salade césar';
 $description12='Une salade césar, avec oeufs,
 poulet et une bonne petite vinaigrette!';
 $image12='cesar_salad.jpg';
+
+$id13=14;
+$libelle13='Salade mystère';
+$description13='Salades mystère, avec un
+ingrédient secret, pour ceux qui veulent découvrir une expérience.';
+$prix7=7.50;
+$image13='salad1.png';
+
+$id14=15;
+$libelle14='Salade de riz';
+$description14='Salade de riz, fraiche avec
+du thon, idéale lors d\'une journée bien ensoleillée.';
+$prix8=9.75;
+$image14='Saladederiz.jpg';
+
+$id15=16;
+$libelle15='Salade de pâtes';
+$description15='Une salade de pâtes fraiches,
+sans prétention avec quelques légumes frais du potager.';
+$image15='saladepates.jpeg';
+
+$id_categorie4=9;
+
+$id16=17;
+$libelle16='Wraps saumons';
+$description16='Wraps au saumon, avec du
+fromage frais, de la bonne feta grecque.';
+$image16='Saumonwrap.jpeg';
+
 
 
     
@@ -247,7 +277,46 @@ try {
     $stmt->bindParam(':id_categorie',$id_categorie3);
     $stmt->bindParam(':active',$active);
     $stmt->execute();
+
+    $stmt = $conn->prepare("UPDATE plat SET libelle=:libelle, description=:description, prix=:prix, image=:image, id_categorie=:id_categorie, active=:active   WHERE id=:id");
+    $stmt->bindParam(':id',$id13);
+    $stmt->bindParam(':libelle',$libelle13);
+    $stmt->bindParam(':description',$description13);
+    $stmt->bindParam(':prix',$prix7);
+    $stmt->bindParam(':image',$image13);
+    $stmt->bindParam(':id_categorie',$id_categorie3);
+    $stmt->bindParam(':active',$active);
+    $stmt->execute();
+
+    $stmt = $conn->prepare("UPDATE plat SET libelle=:libelle, description=:description, prix=:prix, image=:image, id_categorie=:id_categorie, active=:active   WHERE id=:id");
+    $stmt->bindParam(':id',$id14);
+    $stmt->bindParam(':libelle',$libelle14);
+    $stmt->bindParam(':description',$description14);
+    $stmt->bindParam(':prix',$prix8);
+    $stmt->bindParam(':image',$image14);
+    $stmt->bindParam(':id_categorie',$id_categorie3);
+    $stmt->bindParam(':active',$active);
+    $stmt->execute();
+
+    $stmt = $conn->prepare("UPDATE plat SET libelle=:libelle, description=:description, prix=:prix, image=:image, id_categorie=:id_categorie, active=:active   WHERE id=:id");
+    $stmt->bindParam(':id',$id15);
+    $stmt->bindParam(':libelle',$libelle15);
+    $stmt->bindParam(':description',$description15);
+    $stmt->bindParam(':prix',$prix3);
+    $stmt->bindParam(':image',$image15);
+    $stmt->bindParam(':id_categorie',$id_categorie3);
+    $stmt->bindParam(':active',$active);
+    $stmt->execute();
     
+    $stmt = $conn->prepare("UPDATE plat SET libelle=:libelle, description=:description, prix=:prix, image=:image, id_categorie=:id_categorie, active=:active   WHERE id=:id");
+    $stmt->bindParam(':id',$id16);
+    $stmt->bindParam(':libelle',$libelle16);
+    $stmt->bindParam(':description',$description16);
+    $stmt->bindParam(':prix',$prix6);
+    $stmt->bindParam(':image',$image16);
+    $stmt->bindParam(':id_categorie',$id_categorie4);
+    $stmt->bindParam(':active',$active);
+    $stmt->execute();
 
     $conn->commit();
 
