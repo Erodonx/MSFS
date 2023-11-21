@@ -69,7 +69,7 @@ $employe0 ->setEnfants(Array ('15','10','18'));
 $employe0 -> setMagasin(new Magasin())->setNom('Cobalt');
 $employe0 -> getMagasin()->setAdresse('21 rue de la Mine');
 $employe0 -> getMagasin()->setCodePostal('80000');
-$employe0 -> getMagasin()->setVille('Amiens');        x
+$employe0 -> getMagasin()->setVille('Amiens');
 $employe0 -> getMagasin()->setRestaurant('0');
 
 $employe1= new Employe();

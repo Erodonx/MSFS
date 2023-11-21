@@ -15,6 +15,7 @@
     
     <?php 
           include('Modif_BDD/Bdd_auth.php');
+          $verif=false;
           $stmt = $conn->query("SELECT categorie.libelle as catname,plat.description as descrip, plat.image as image, plat.id as platid from categorie join plat where plat.id_categorie=categorie.id and categorie.active='Yes'");
           $quadrio=1;
           while ($row=$stmt->fetch())
@@ -53,7 +54,8 @@
                    </div>
                </div>
            </div>
-       </div>';}else
+       </div>';
+    }else
        {
         echo '<div class="col-12 col-lg-6 px-4 pb-4 justify-content-right">
         <div class="card bg-dark rounded" id="card_putin">
@@ -83,7 +85,7 @@
             echo '</div></div>
             </div></div>';
         }
-          }
+    }
         echo '</div>';
 
     ?>
