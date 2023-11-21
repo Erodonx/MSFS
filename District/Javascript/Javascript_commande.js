@@ -21,7 +21,10 @@ number.addEventListener('change', () => {
     temp=temp1;
     temp=number.value*temp;
     prix.innerHTML=temp;
+    if (verif==false)
+    {
     verif=true;
+    }
 
 
 })

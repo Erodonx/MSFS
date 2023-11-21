@@ -32,7 +32,7 @@ echo '<div class="container-fluid bg-light">
                     <p class="card-text text-light text-left">'.$row['description'].'</p>
                 </div>
                 <div class="position-absolute number d-flex justify-content-left">
-                <p class="text-light">prix : </p><p class="text-light" id="prix">'.$row['prix'].'</p>
+                <p class="text-light">prix : </p><p class="text-light" id="prix">'.$row['prix'].'</p> <p class="text-light">  €</p>
                 </div>
                 <div class="position-absolute commands d-flex justify-content-end">
                                     <label for="quantité" class="text-light">quantité</label>
