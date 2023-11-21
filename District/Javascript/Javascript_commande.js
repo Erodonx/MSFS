@@ -8,8 +8,23 @@ let defaultname=document.getElementById('defaultnp');
 let defaultmail=document.getElementById('defaultmail');
 let defaultnumero=document.getElementById('defaultnumero');
 let defaultadresse=document.getElementById('defaultadresse');
+let number=document.getElementById('number');
+let prix=document.getElementById('prix');
 let adressepourverif,chainea,chaineb,chaineba,chainebb;
 
+verif=false;
+number.addEventListener('change', () => {
+    if (verif==false)
+    {
+     temp1=prix.innerHTML;
+    }
+    temp=temp1;
+    temp=number.value*temp;
+    prix.innerHTML=temp;
+    verif=true;
+
+
+})
 
 form.addEventListener('submit' , (e) => {
     defaultnp.innerHTML="";

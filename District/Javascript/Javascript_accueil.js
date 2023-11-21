@@ -1,3 +1,5 @@
+if (document.getElementById('verification')!=null)
+{
 var verification=document.getElementById('verification');
 var img=document.getElementById('img');
 var putine=document.getElementById('putin');
@@ -7,8 +9,9 @@ verification.addEventListener("mouseover" , (e) => {
 });
 verification.addEventListener("mouseout" , (e) => {
     putine.innerHTML='';
-    img.src="../BOOTSTRAP/Assets/food/resized/Food-Name-433.png";
+    img.src="../BOOTSTRAP/Assets/food/resized/putin_hidden.png";
 });
+}
 
 
 $(document).ready(function()

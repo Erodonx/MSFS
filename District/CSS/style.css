@@ -72,3 +72,6 @@ animation: rotate 18s linear infinite; animation-delay: 0s;}
 .commands{
     bottom:0; right:0;
 }
+.number{
+    bottom:0; right:520px;
+}

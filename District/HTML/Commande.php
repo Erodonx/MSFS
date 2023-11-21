@@ -12,30 +12,39 @@
 
 <body>
     <?php
-session_start();
+include ("Modif_BDD/Bdd_auth.php");
+$vari=$_GET['id'];
+$stmt = $conn-> query("SELECT * FROM plat where id=".$vari."");
+while ($row = $stmt->fetch())
+{
 echo '<div class="container-fluid bg-light">
 <div id="header"></div>
 <div class="row justify-content-center d-flex pt-5 bg-light">
+<div class="col-12 col-md-6">
     <div class="card bg-dark rounded">
         <div class="card-body">
             <div class="row">
                 <div class="col-4">
-                    <img id="lienplat"class="card-img-bottom" src="'.$_REQUEST['platsrc'].'"
+                    <img class="card-img-bottom" src="../BOOTSTRAP/Assets/food/resized/'.$row['image'].'"
                          alt="Plat commandé">
                 </div>
                 <div class="col-8 px-5 px-lg-0 pr-5 pb-3 position-static">
-                    <p id="descriptionplat" class="card-text text-light text-left">'.$_REQUEST['platdesc'].'</p>
+                    <p class="card-text text-light text-left">'.$row['description'].'</p>
+                </div>
+                <div class="position-absolute number d-flex justify-content-left">
+                <p class="text-light">prix : </p><p class="text-light" id="prix">'.$row['prix'].'</p>
                 </div>
                 <div class="position-absolute commands d-flex justify-content-end">
                                     <label for="quantité" class="text-light">quantité</label>
-                                    <input type="number" min="1" max="10" value="1" class="w-25">
+                                    <input type="number" min="1" max="10" value="1" id="number" class="w-25">
                                 </div>
             </div>
         </div>
     </div>
 </div>
+</div>
 <div class="row align-self-center d-flex justify-content-center bg-light">
-    <form class="w-75 m-5" id="form1" name="form1" method="post">
+    <form class="w-75 m-5" id="form1" name="form1" action="commande_script.php" method="post">
         <!--onsubmit="return checkForm(this);"-->
 
         <div class="row pt-5">
@@ -47,17 +56,17 @@ echo '<div class="container-fluid bg-light">
         </div>
         <div class="row pt-5">
             <div class="col-6">
-        <label for="Email">Email</label><br><input class="w-100" type="text" id="email" placeholder="Marcdubois@afpa.fr">
+        <label for="Email">Email</label><br><input class="w-100" type="text" name="email" id="email" placeholder="Marcdubois@afpa.fr">
         <span class="text-danger" id="defaultmail"></span></div>
         <div class="col-6">
-        <label for="Téléphone">Téléphone</label><input class="w-100" type="text" id="telephone" placeholder="0X.XX.XX.XX.XX">
+        <label for="Téléphone">Téléphone</label><input class="w-100" type="text" name="telephone" id="telephone" placeholder="0X.XX.XX.XX.XX">
         <span class="text-danger" id="defaultnumero"></span></div>
     </div>
         <div class="row pt-5">
         <label for="adresse">Votre adresse</label>
         </div>
         <div class="row pb-5">
-        <textarea class="w-100" id="adresse"> </textarea><span class="text-danger" id="defaultadresse"></span>
+        <textarea class="w-100" id="adresse" name="adresse"> </textarea><span class="text-danger" id="defaultadresse"></span>
     </div>
         <input type="submit" value="Envoyer" id="idSubForm1" name="subForm1">
         <input type="reset" value="Annuler">
@@ -65,6 +74,8 @@ echo '<div class="container-fluid bg-light">
 <div id="footer"></div>
 </div>';
 
+}
+echo json_encode($pricee);
 ?>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
