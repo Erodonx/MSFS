@@ -311,7 +311,7 @@
                                     </div>
                                     <div class="col-8 px-5 px-lg-0 pr-5 pb-3 position-static">
                                         <p class="card-text text-light text-left">Pizza kébab, un choc
-                                            culturel ainsi que gustatif, un vrai régal avec une sauce kebab indémodable
+                                            culturel ainsi que gustatif, un vrai régal avec une sauce kebab indémodable.
                                         </p>
                                         <form action="Commande.php" method="POST">
                                             <input type="hidden" name="platsrc" value="../BOOTSTRAP/Assets/food/resized/pizzakebab.png" />
