@@ -46,7 +46,7 @@ echo '<div class="container-fluid bg-light">
 </div>
 </div>
 <div class="row align-self-center d-flex justify-content-center bg-light">
-    <form class="w-75 m-5" id="form1" name="form1" action="commande_script.php" method="post">
+    <form class="w-75 m-5" id="form1" name="form1" action="Commande_script.php" method="post">
         <!--onsubmit="return checkForm(this);"-->
 
         <div class="row pt-5">
@@ -105,7 +105,7 @@ echo '<div class="container-fluid bg-light">
 </div>
 </div>
 <div class="row align-self-center d-flex justify-content-center bg-light">
-    <form class="w-75 m-5" id="form1" name="form1" action="commande_script.php" method="post">
+    <form class="w-75 m-5" id="form1" name="form1" action="Commande_script.php" method="post">
         <!--onsubmit="return checkForm(this);"-->
 
         <div class="row pt-5">
