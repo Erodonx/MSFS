@@ -16,14 +16,42 @@
         <?php
         include('Modif_BDD/Bdd_auth.php');
         $trio=1;
-        $stmt= $conn->query("SELECT * FROM categorie where active='Yes'");
+        //$stmt= $conn->query("SELECT * FROM categorie where active='Yes'");
+        $stmt = $conn->query("select categorie.libelle,categorie.image,sum(quantite) from commande join plat on plat.id = commande.id_plat join categorie on plat.id_categorie=categorie.id group by categorie.id order by sum(quantite) desc;");
         while ($row = $stmt->fetch()) {
             if ($trio==1)
             {
                 echo '<div class="row justify-content-center d-none d-md-flex pt-4">';
             }
             echo '<div class="col-4 d-flex justify-content-center">
-                    <a href="Plat.html">
+                    <a href="Plat.php#'.$row['libelle'].'">
+                    <div class="card bg-dark text-light d-flex">
+                        <div class="card-header">
+                            <p class="h5 text-center">'.$row['libelle'].'</p>
+                        </div>
+                        <div class="card-body">
+                            <img class="card-img-bottom" src="../BOOTSTRAP/Assets/category/'.$row['image'].'"
+                                alt="Card images Pinterest">
+                        </div>
+                    </div>
+                </a>
+            </div>';
+            $trio++;
+            if ($trio==4)
+            {
+                $trio=1;
+                echo '</div>';
+            }
+
+        }
+        $stmt = $conn->query("select categorie.libelle,categorie.image from categorie where categorie.libelle not in (select categorie.libelle from commande join plat on plat.id = commande.id_plat join categorie on plat.id_categorie=categorie.id group by categorie.id order by sum(quantite) desc) and active='Yes';");
+        while ($row = $stmt->fetch()) {
+            if ($trio==1)
+            {
+                echo '<div class="row justify-content-center d-none d-md-flex pt-4">';
+            }
+            echo '<div class="col-4 d-flex justify-content-center">
+                    <a href="Plat.php#'.$row['libelle'].'">
                     <div class="card bg-dark text-light d-flex">
                         <div class="card-header">
                             <p class="h5 text-center">'.$row['libelle'].'</p>
@@ -52,7 +80,11 @@
         {
 
             if($trio <= 3)
+                    {
+            if ($row['image']!='Putin_hidden.png')
             {
+
+
 
             echo '<div class="col-12 col-md-4 justify-content-center d-flex">
             <a href="#">
@@ -67,9 +99,27 @@
             </div>
             </a>
         </div>';
+            }else{
+                echo '<div class="col-12 col-md-4 justify-content-center d-flex">
+                <a href="#">
+                <div class="card bg-dark text-light" id="card_putin">
+                    <div class="card-header">
+                        <p class="h5 text-center">'.$row['libelle'].'</p>
+                    </div>
+                    <div class="card-body" id="verification">
+                        <img class="card-img-bottom" src="../BOOTSTRAP/Assets/food/resized/'.$row['image'].'"
+                            alt="Card images Pinterest" id="img">
+                    </div>
+                </div>
+                </a>
+            </div>';
+            }
+            
             }
             if ($trio>3)
             {
+                if ($row['image']!='Putin_hidden.png')
+                {
              echo '<div class="col-12 d-md-none justify-content-center d-flex">
              <a href="#">
              <div class="card bg-dark text-light">
@@ -83,6 +133,21 @@
              </div>
              </a>
          </div>';
+                }else{
+                    echo '<div class="col-12 d-md-none justify-content-center d-flex">
+                    <a href="#">
+                    <div class="card bg-dark text-light" id="card_putin">
+                        <div class="card-header">
+                            <p class="h5 text-center">'.$row['libelle'].'</p>
+                        </div>
+                        <div class="card-body" id="verification">
+                            <img class="card-img-bottom" src="../BOOTSTRAP/Assets/food/resized/'.$row['image'].'"
+                                alt="Card images Pinterest" id="img">
+                        </div>
+                    </div>
+                    </a>
+                </div>';
+                }
             }
         $trio++;
         }

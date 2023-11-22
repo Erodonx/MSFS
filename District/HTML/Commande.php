@@ -17,6 +17,8 @@ $vari=$_GET['id'];
 $stmt = $conn-> query("SELECT * FROM plat where id=".$vari."");
 while ($row = $stmt->fetch())
 {
+    if ($row['image']!='Putin_hidden.png')
+    {
 echo '<div class="container-fluid bg-light">
 <div id="header"></div>
 <div class="row justify-content-center d-flex pt-5 bg-light">
@@ -61,6 +63,8 @@ echo '<div class="container-fluid bg-light">
         <div class="col-6">
         <label for="Téléphone">Téléphone</label><input class="w-100" type="text" name="telephone" id="telephone" placeholder="0X.XX.XX.XX.XX">
         <span class="text-danger" id="defaultnumero"></span></div>
+        <input type="hidden" value="0" id="nombreco" name="nombreco">
+        <input type="hidden" value="'.$vari.'" name="idplat">
     </div>
         <div class="row pt-5">
         <label for="adresse">Votre adresse</label>
@@ -73,9 +77,67 @@ echo '<div class="container-fluid bg-light">
 </div>
 <div id="footer"></div>
 </div>';
+}else{
+    echo '<div class="container-fluid bg-light">
+<div id="header"></div>
+<div class="row justify-content-center d-flex pt-5 bg-light">
+<div class="col-12 col-md-6">
+    <div class="card bg-dark rounded" id="card_putin">
+        <div class="card-body" id="verification">
+            <div class="row">
+                <div class="col-4">
+                    <img class="card-img-bottom" src="../BOOTSTRAP/Assets/food/resized/'.$row['image'].'"
+                         alt="Plat commandé" id="img">
+                </div>
+                <div class="col-8 px-5 px-lg-0 pr-5 pb-3 position-static">
+                    <p class="card-text text-light text-left">'.$row['description'].'</p>
+                </div>
+                <div class="position-absolute number d-flex justify-content-left">
+                <p class="text-light">prix : </p><p class="text-light" id="prix">'.$row['prix'].'</p> <p class="text-light">  €</p>
+                </div>
+                <div class="position-absolute commands d-flex justify-content-end">
+                                    <label for="quantité" class="text-light">quantité</label>
+                                    <input type="number" min="1" max="10" value="1" id="number" class="w-25">
+                                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="row align-self-center d-flex justify-content-center bg-light">
+    <form class="w-75 m-5" id="form1" name="form1" action="commande_script.php" method="post">
+        <!--onsubmit="return checkForm(this);"-->
 
-}
-echo json_encode($pricee);
+        <div class="row pt-5">
+            <div class="col-12">
+                <label for="np">Nom et prénom</label><br><input class="w-100" type="text" name="nomprenom"
+                    id="np" placeholder="Dubois Marc">
+                    <span class="text-danger" id="defaultnp"></span>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="col-6">
+        <label for="Email">Email</label><br><input class="w-100" type="text" name="email" id="email" placeholder="Marcdubois@afpa.fr">
+        <span class="text-danger" id="defaultmail"></span></div>
+        <div class="col-6">
+        <label for="Téléphone">Téléphone</label><input class="w-100" type="text" name="telephone" id="telephone" placeholder="0X.XX.XX.XX.XX">
+        <span class="text-danger" id="defaultnumero"></span></div>
+        <input type="hidden" value="0" id="nombreco" name="nombreco">
+        <input type="hidden" value="'.$vari.'" name="idplat">
+    </div>
+    <span id="putin"></span>
+        <div class="row pt-5">
+        <label for="adresse">Votre adresse</label>
+        </div>
+        <div class="row pb-5">
+        <textarea class="w-100" id="adresse" name="adresse"> </textarea><span class="text-danger" id="defaultadresse"></span>
+    </div>
+        <input type="submit" value="Envoyer" id="idSubForm1" name="subForm1">
+        <input type="reset" value="Annuler">
+</div>
+<div id="footer"></div>
+</div>';
+}}
 ?>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

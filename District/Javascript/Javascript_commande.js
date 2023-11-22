@@ -1,3 +1,16 @@
+if (document.getElementById('verification')!=null)
+{
+var verification=document.getElementById('verification');
+var img=document.getElementById('img');
+var putine=document.getElementById('putin');
+verification.addEventListener("mouseover" , (e) => {
+    putine.innerHTML='<audio src="../BOOTSTRAP/Assets/son/balade.mp3" autoplay loop></audio>';
+    img.src="../BOOTSTRAP/Assets/gif/wide-putin-awokenRes.gif";
+});
+verification.addEventListener("mouseout" , (e) => {
+    putine.innerHTML='';
+    img.src="../BOOTSTRAP/Assets/food/resized/Putin_hidden.png";
+});}
 var filtre = new RegExp("^[A-Za-z]+$");
 var filtrenp=new RegExp("^[A-Za-z]+ +[A-Za-z]+$");
 var filtretel = new RegExp("^0+[0-9]{9}$");
@@ -10,16 +23,29 @@ let defaultnumero=document.getElementById('defaultnumero');
 let defaultadresse=document.getElementById('defaultadresse');
 let number=document.getElementById('number');
 let prix=document.getElementById('prix');
+let nombreco=document.getElementById('nombreco');
 let adressepourverif,chainea,chaineb,chaineba,chainebb;
 
 verif=false;
+number.value=1;
+temp2=1;
+nombreco.value=number.value;
 number.addEventListener('change', () => {
     if (verif==false)
     {
      temp1=prix.innerHTML;
     }
+    if (number.value>10)
+    {
+     number.value=10;
+     temp2=10;
+    }
     temp=temp1;
+    temp2=Math.round(number.value);
+    console.log('AAAAAAAAAAAAAAAAAAH!!!');
+    number.value=temp2;
     temp=number.value*temp;
+    nombreco.value=number.value;
     prix.innerHTML=temp;
     if (verif==false)
     {

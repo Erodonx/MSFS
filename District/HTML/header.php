@@ -15,14 +15,14 @@
                         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="Accueil.html">Accueil<span
+                                    <a class="nav-link" href="Accueil.php">Accueil<span
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="Catégorie.html">Catégorie</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="Plat.html">Plat</a>
+                                    <a class="nav-link" href="Plat.php">Plat</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="Contact.html">Contact</a>

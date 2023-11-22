@@ -24,7 +24,7 @@
             {
              echo '<div class="row">
                     <div class="col-12">
-                 <p class="h2 text-center px-5 pt-2 text-light">'.$row['catname'].'</p>
+                 <p class="h2 text-center px-5 pt-2 text-light" id="'.$row['catname'].'">'.$row['catname'].'</p>
                     </div>
                     <div class="row pt-2 mx-0">
                     <div class="row px-5">
