@@ -19,13 +19,13 @@
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="Catégorie.html">Catégorie</a>
+                                    <a class="nav-link" href="Categorie.php">Catégorie</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="Plat.php">Plat</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="Contact.html">Contact</a>
+                                    <a class="nav-link" href="Contact.php">Contact</a>
                                 </li>
                             </ul>
                             <!--  -->

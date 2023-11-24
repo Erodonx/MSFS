@@ -12,13 +12,8 @@
 <body>
 <div class="container-fluid parallax">
         <div id="header"></div>   
-        <div class="row">
-            
-            <div class="col-12 d-none d-md-block py-5 align-self-center bg-dark">
-                <div class="d-flex justify-content-center"><video muted autoplay class="w-25" loop>
-                    <source src="../BOOTSTRAP/Assets/videos/My Burger TV Ad.mp4">
-                </video>
-                </div>
+        <div class="row background">
+            <div class="col-12 d-none d-md-block py-5 align-self-center">
                 <form class="form-inline justify-content-center">
                     <input class="form-control searchbar" type="search" placeholder="Parcourir le site">
                     <button class="btn text-light btn-outline-success bg-success" type="submit">Rechercher</button>
@@ -33,9 +28,9 @@
         while ($row = $stmt->fetch()) {
             if ($trio==1)
             {
-                echo '<div class="row justify-content-center d-none d-md-flex pt-4">';
+                echo '<div class="row row-cols-1 row-md-cols-2 justify-content-center d-flex pt-4">';
             }
-            echo '<div class="col-4 d-flex justify-content-center">
+            echo '<div class="col-12 col-md-4 d-flex  pt-4 justify-content-center">
                     <a href="Plat.php#'.$row['libelle'].'">
                     <div class="card bg-dark text-light d-flex">
                         <div class="card-header">
@@ -49,7 +44,7 @@
                 </a>
             </div>';
             $trio++;
-            if ($trio==4)
+            if ($trio==7)
             {
                 $trio=1;
                 echo '</div>';
@@ -62,7 +57,7 @@
             {
                 echo '<div class="row justify-content-center d-none d-md-flex pt-4">';
             }
-            echo '<div class="col-4 d-flex justify-content-center">
+            echo '<div class="col-12 col-md-4 d-flex  pt-4 justify-content-center">
                     <a href="Plat.php#'.$row['libelle'].'">
                     <div class="card bg-dark text-light d-flex">
                         <div class="card-header">
@@ -76,98 +71,16 @@
                 </a>
             </div>';
             $trio++;
-            if ($trio==4)
+            if ($trio==7)
             {
                 $trio=1;
                 echo '</div>';
             }
 
         }
-        $etat='Annulée';
-        $stmt1=$conn->query("SELECT sum(quantite*prix), plat.libelle,plat.image from commande join plat where id_plat=plat.id and commande.etat!='Annulée' group by plat.libelle order by sum(quantite) desc limit 5");
-        $stmt1->execute();
-        
-        echo '<div class="row justify-content-center d-flex row-cols-1 row-md-cols-3 py-4">';
-        while ($row = $stmt1->fetch())
-        {
-
-            if($trio <= 3)
-                    {
-            if ($row['image']!='Putin_hidden.png')
-            {
 
 
-
-            echo '<div class="col-12 col-md-4 justify-content-center d-flex">
-            <a href="#">
-            <div class="card bg-dark text-light">
-                <div class="card-header">
-                    <p class="h5 text-center">'.$row['libelle'].'</p>
-                </div>
-                <div class="card-body">
-                    <img class="card-img-bottom" src="../BOOTSTRAP/Assets/food/resized/'.$row['image'].'"
-                        alt="Card images Pinterest">
-                </div>
-            </div>
-            </a>
-        </div>';
-            }else{
-                echo '<div class="col-12 col-md-4 justify-content-center d-flex">
-                <a href="#">
-                <div class="card bg-dark text-light" id="card_putin">
-                    <div class="card-header">
-                        <p class="h5 text-center">'.$row['libelle'].'</p>
-                    </div>
-                    <div class="card-body" id="verification">
-                        <img class="card-img-bottom" src="../BOOTSTRAP/Assets/food/resized/'.$row['image'].'"
-                            alt="Card images Pinterest" id="img">
-                    </div>
-                </div>
-                </a>
-            </div>';
-            }
-            
-            }
-            if ($trio>3)
-            {
-                if ($row['image']!='Putin_hidden.png')
-                {
-             echo '<div class="col-12 d-md-none justify-content-center d-flex">
-             <a href="#">
-             <div class="card bg-dark text-light">
-                 <div class="card-header">
-                     <p class="h5 text-center">'.$row['libelle'].'</p>
-                 </div>
-                 <div class="card-body">
-                     <img class="card-img-bottom" src="../BOOTSTRAP/Assets/food/resized/'.$row['image'].'"
-                         alt="Card images Pinterest">
-                 </div>
-             </div>
-             </a>
-         </div>';
-                }else{
-                    echo '<div class="col-12 d-md-none justify-content-center d-flex">
-                    <a href="#">
-                    <div class="card bg-dark text-light" id="card_putin">
-                        <div class="card-header">
-                            <p class="h5 text-center">'.$row['libelle'].'</p>
-                        </div>
-                        <div class="card-body" id="verification">
-                            <img class="card-img-bottom" src="../BOOTSTRAP/Assets/food/resized/'.$row['image'].'"
-                                alt="Card images Pinterest" id="img">
-                        </div>
-                    </div>
-                    </a>
-                </div>';
-                }
-            }
-        $trio++;
-        }
-
-        
-        echo '</div>';
-        ?>
-
+?>
         <span id="putin"></span>
         <div id="footer"></div>
     </div>
