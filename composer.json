@@ -1,0 +1,17 @@
+{
+    "name": "erodon/msfs",
+    "autoload": {
+        "psr-4": {
+            "Erodon\\Msfs\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Stal Charles",
+            "email": "stalcha01@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.8"
+    }
+}
