@@ -75,3 +75,7 @@ animation: rotate 18s linear infinite; animation-delay: 0s;}
 .number{
     bottom:0; right:520px;
 }
+
+.grid{
+    display:grid;
+}

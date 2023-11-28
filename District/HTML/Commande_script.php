@@ -74,7 +74,7 @@ $mail->isHTML(true);
 $mail->Subject = 'Commande the district #'.$idsave;
 
 // Corps du message
-$mail->Body = "Voici le récapulatif de votre commande : quantité commandé" . $_POST['nombreco'] . 'prix total : '.$total;
+$mail->Body = "Voici le récapulatif de votre commande : Nom du plat : " .$_POST['nomplat'] . " quantité commandé " . $_POST['nombreco'] . ' prix total : '.$total . ' €' . ' Nous vous contacterons au numéro renseigné : ' . $_POST['telephone'] . ' une fois la commande arrivée à l\'adresse : ' . $_POST['adresse']; 
 
 // On envoie le mail dans un block try/catch pour capturer les éventuelles erreurs
 if ($mail){

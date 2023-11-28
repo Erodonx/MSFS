@@ -65,6 +65,7 @@ echo '<div class="container-fluid bg-light">
         <span class="text-danger" id="defaultnumero"></span></div>
         <input type="hidden" value="0" id="nombreco" name="nombreco">
         <input type="hidden" value="'.$vari.'" name="idplat">
+        <input type="hidden" value="'.$row['libelle'] . '" name="nomplat">
     </div>
         <div class="row pt-5">
         <label for="adresse">Votre adresse</label>
@@ -124,6 +125,7 @@ echo '<div class="container-fluid bg-light">
         <span class="text-danger" id="defaultnumero"></span></div>
         <input type="hidden" value="0" id="nombreco" name="nombreco">
         <input type="hidden" value="'.$vari.'" name="idplat">
+        <input type="hidden" value="'.$row['libelle'].'" name="nomplat">
     </div>
     <span id="putin"></span>
         <div class="row pt-5">
