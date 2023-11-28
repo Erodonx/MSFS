@@ -9,7 +9,7 @@
     <title>Nos plats</title>
 </head>
 <body>
-    <div class="container-fluid parallax">
+    <div class="container-fluid parallax overflow-hidden">
     <div id="header"></div>
     <div class="row background" id="platbg"></div>
     
@@ -18,6 +18,7 @@
           $verif=false;
           $stmt = $conn->query("SELECT categorie.libelle as catname,plat.description as descrip, plat.image as image, plat.id as platid from categorie join plat where plat.id_categorie=categorie.id and categorie.active='Yes' Order by categorie.libelle");
           $quadrio=1;
+          $cat=0;
           while ($row=$stmt->fetch())
           { 
            if ($quadrio==1)
@@ -79,14 +80,15 @@
             
 
         $quadrio++;
-        if ($quadrio==5)
+        $cat++;
+        if ($quadrio==5&&$cat!=6)
         {
             $quadrio=1;
             echo '</div></div>
             </div></div>';
         }
     }
-        echo '</div>';
+        //echo '</div>';
 
     ?>
 
