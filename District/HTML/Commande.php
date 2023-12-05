@@ -12,9 +12,9 @@
 
 <body>
     <?php
-include ("Modif_BDD/Bdd_auth.php");
+include ("DAO.php");
+$stmt=commande($conn);
 $vari=$_GET['id'];
-$stmt = $conn-> query("SELECT * FROM plat where id=".$vari."");
 while ($row = $stmt->fetch())
 {
     if ($row['image']!='Putin_hidden.png')

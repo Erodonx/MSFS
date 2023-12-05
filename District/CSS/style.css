@@ -8,7 +8,7 @@
     background-color: rgba(255,255,255,0.8);
 }
 .redsocials{
-    background-color:rgba(100, 5, 52); height:40px;
+    background-color:rgba(100, 5, 52); height:45px;
 }
 .background{
     background-image: url('/FRONT/STATIQUE/BOOTSTRAP/Assets/bg.jpg');
@@ -75,10 +75,20 @@ animation: rotate 18s linear infinite; animation-delay: 0s;}
 .commands{
     bottom:0; right:0;
 }
-.number{
-    bottom:0; right:520px;
-}
 
+.number{
+    bottom:0; left:17vw;
+    }
 .grid{
     display:grid;
+}
+@media (max-width: 768px){
+p{
+ font-size:10px;
+}
+.grid{
+font-size:10px;}
+.number{
+bottom:0; left:35vw;
+}
 }

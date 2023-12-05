@@ -21,10 +21,10 @@
             </div>
         </div>
         <?php
-        include('Modif_BDD/Bdd_auth.php');
+        include('DAO.php');
         $trio=1;
         //$stmt= $conn->query("SELECT * FROM categorie where active='Yes'");
-        $stmt = $conn->query("select categorie.libelle,categorie.image,sum(quantite) from commande join plat on plat.id = commande.id_plat join categorie on plat.id_categorie=categorie.id group by categorie.id order by sum(quantite) desc;");
+        $stmt=affiche_cat_Populaire($conn);
         while ($row = $stmt->fetch()) {
             if ($trio==1)
             {
@@ -51,7 +51,7 @@
             }
 
         }
-        $stmt = $conn->query("select categorie.libelle,categorie.image from categorie where categorie.libelle not in (select categorie.libelle from commande join plat on plat.id = commande.id_plat join categorie on plat.id_categorie=categorie.id group by categorie.id order by sum(quantite) desc) and active='Yes';");
+       $stmt=affiche_cat($conn);
         while ($row = $stmt->fetch()) {
             if ($trio==1)
             {

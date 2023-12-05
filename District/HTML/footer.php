@@ -1,7 +1,7 @@
 <footer>
-            <div class="row redsocials">
+            <div class="row redsocials align-self-center">
                
-                <div class="col-8 align-self-center">
+                <div class="col-4 align-self-center">
                     <ul class="list-inline justify-content-left mb-0 d-flex">
                         <li class="list-inline-item"><a href="https://twitter.com/?lang=fr">
                                 <img src="../BOOTSTRAP/Assets/Logos/twitter.png" width="20" height="20" class="rounded"
@@ -20,10 +20,10 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-2 d-flex align-self-center justify-content-end">
+                <div class="col-3 grid justify-content-end align-self-center">
                     <a class="text-light" href="mentions-legales.php">Mentions légales</a>
                 </div>
-                <div class="col-2 d-flex align-self-center justify-content-end">
+                <div class="col-5 grid justify-content-end align-self-center">
                     <a class="text-light" href="politique-de-confidentialite.php">Politique de confidentialité</a>
                 </div>
             </div>

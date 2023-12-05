@@ -14,9 +14,8 @@
     <div class="row background" id="platbg"></div>
     
     <?php 
-          include('Modif_BDD/Bdd_auth.php');
-          $verif=false;
-          $stmt = $conn->query("SELECT categorie.libelle as catname,plat.description as descrip, plat.image as image, plat.id as platid from categorie join plat where plat.id_categorie=categorie.id and categorie.active='Yes' Order by categorie.libelle");
+          include('DAO.php');
+          $stmt=plat_plat($conn);
           $quadrio=1;
           $cat=0;
           while ($row=$stmt->fetch())
