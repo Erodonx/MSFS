@@ -15,13 +15,13 @@
             <h3 class="text-secondary font-weight-bold pb-3"> Mentions légales :</h1>
         </div>
         <div class="row">
-            <p class="text-secondary"> Le site internet District<sup>tm</sup> est la propriété exclusive personnelle de la personne physique Charles Stal. Si vous n'êtes pas d'accord... Rien de personnel mais, je n'ai pas besoin de votre consentement qu'il soit éclairé ou pas. C'est MOI QUI DECIDE.
+            <p class="text-secondary"> Le site internet District<sup>tm</sup> est la propriété exclusive personnelle de la personne physique Patrick Chouvet. Si vous n'êtes pas d'accord... Rien de personnel mais, je n'ai pas besoin de votre consentement qu'il soit éclairé ou pas. C'est MOI QUI DECIDE.
            <br> Identifiant siret : 19964785441236456
-           <br> Propriétaire : Charles Stal
+           <br> Propriétaire : Patrick Chouvet
            <br> E-mail : Hautementfonctionneldelafpa@afpa.fr
            <br> Téléphone : 06 69 63 45 86
            <br><br>Conception du site internet : Ma secrétaire personnelle -> <a href="#" class="text-secondary">www.masecretaireperso.com</a>
-           <br><br>Le site est hébérgé par amorce.org, situé au 15 rue de Poulainville, 80000 Amiens. Capital : un empire de plusieurs milliards de USD $, Siret : 869 808 40200012</p>
+           <br><br>Le site est hébérgé par amorce.org, situé au 15 rue de Veauville, 67000 Strasbourg. Capital : un empire de plusieurs milliards de USD $, Siret : 869 808 40200012</p>
         </div>
         <div class="fixed-bottom">
         <div id="footer"></div>

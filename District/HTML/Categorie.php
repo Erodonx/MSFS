@@ -31,7 +31,7 @@
                 echo '<div class="row row-cols-1 row-md-cols-2 justify-content-center d-flex pt-4">';
             }
             echo '<div class="col-12 col-md-4 d-flex  pt-4 justify-content-center">
-                    <a href="Plat.php#'.$row['libelle'].'">
+                    <a href="Plat.php?cat_id='.$row['id'].'">
                     <div class="card bg-dark text-light d-flex">
                         <div class="card-header">
                             <p class="h5 text-center">'.$row['libelle'].'</p>
@@ -58,7 +58,7 @@
                 echo '<div class="row justify-content-center d-none d-md-flex pt-4">';
             }
             echo '<div class="col-12 col-md-4 d-flex  pt-4 justify-content-center">
-                    <a href="Plat.php#'.$row['libelle'].'">
+                    <a href="Plat.php?cat_id='.$row['id'].'">
                     <div class="card bg-dark text-light d-flex">
                         <div class="card-header">
                             <p class="h5 text-center">'.$row['libelle'].'</p>

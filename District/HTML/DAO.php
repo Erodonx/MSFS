@@ -4,12 +4,12 @@ include('Modif_BDD/Bdd_auth.php');
 //Requêtes accueil
 function affiche_cat_Populaire($conn)
 {
-    $stmt = $conn->query("select categorie.libelle,categorie.image,sum(quantite) from commande join plat on plat.id = commande.id_plat join categorie on plat.id_categorie=categorie.id group by categorie.id order by sum(quantite) desc;");
+    $stmt = $conn->query("select categorie.libelle,categorie.image,sum(quantite),categorie.id from commande join plat on plat.id = commande.id_plat join categorie on plat.id_categorie=categorie.id group by categorie.id order by sum(quantite) desc;");
     return $stmt;
 }
 function affiche_cat($conn)
 {
-    $stmt = $conn->query("select categorie.libelle,categorie.image from categorie where categorie.libelle not in (select categorie.libelle from commande join plat on plat.id = commande.id_plat join categorie on plat.id_categorie=categorie.id group by categorie.id order by sum(quantite) desc) and active='Yes';");
+    $stmt = $conn->query("select categorie.libelle,categorie.image,categorie.id from categorie where categorie.libelle not in (select categorie.libelle from commande join plat on plat.id = commande.id_plat join categorie on plat.id_categorie=categorie.id group by categorie.id order by sum(quantite) desc) and active='Yes';");
     return $stmt;
 }
 
@@ -23,6 +23,12 @@ function affiche_plat($conn)
 function plat_plat($conn)
 {
     $stmt = $conn->query("SELECT categorie.libelle as catname,plat.description as descrip, plat.image as image, plat.id as platid from categorie join plat where plat.id_categorie=categorie.id and categorie.active='Yes' Order by categorie.libelle");
+    return $stmt;
+}
+function plat_plat_cat($conn)
+{
+    $vari=$_GET['cat_id'];
+    $stmt = $conn->query("SELECT categorie.libelle as catname,plat.description as descrip, plat.image as image, plat.id as platid from categorie join plat where plat.id_categorie=categorie.id and categorie.active='Yes' and id_categorie=".$vari." Order by categorie.libelle");
     return $stmt;
 }
 function commande($conn)

@@ -15,7 +15,12 @@
     
     <?php 
           include('DAO.php');
+          if (!isset ($_GET['cat_id']))
+          {
           $stmt=plat_plat($conn);
+          }else{
+          $stmt=plat_plat_cat($conn);
+          }
           $quadrio=1;
           $cat=0;
           while ($row=$stmt->fetch())
