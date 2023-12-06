@@ -20,7 +20,8 @@ Ecrire des requêtes de modifications de la base de de  données
 
 2. delete from commande where etat='Livrée';
 
-3.
+3.INSERT into categorie (id,libelle,image,active) values (7,'Fruits de mer','crevette.jpg','Yes');
+  INSERT into plat (id,libelle,description,prix,image,id_categorie,active) VALUES('45','crevette','crevette fraiche','10.5','crevette.jpg','7','Yes');
 
 4. update plat
 
